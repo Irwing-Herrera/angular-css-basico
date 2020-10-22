@@ -1,0 +1,78 @@
+//----------------------------------*\
+// Fonts
+//----------------------------------*/
+@import "assets/scss/modules/_fonts.scss";
+
+// primary font
+$primary_font: "Montserrat";
+// font-weight
+$regular: normal;
+$light: 300;
+$black: 900;
+$bold: bold;
+// Font size
+$font-xs: 12px;
+$font-sm: 14px;
+$primary-fs: 16px;
+$font-md: 18px;
+$font-lg: 20px;
+
+body {
+  font-family: $primary_font;
+  font-size: $primary-fs;
+  font-weight: $regular;
+  width: 100vw;
+  height: 100vh;
+}
+
+.btn-purple {
+  color: #ffffff;
+  background-color: #3c334e;
+  border-color: #3c334e;
+}
+
+.btn-purple:hover {
+  color: #ffffff;
+  background-color: #241e2e;
+  border-color: #241e2e;
+}
+
+.btn-purple:focus, .btn-purple.focus {
+  color: #ffffff;
+  background-color: #3c334e;
+  border-color: #241e2e;
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
+
+.btn-purple.disabled, .btn-purple:disabled {
+  color: #ffffff;
+  background-color: #3c334e;
+  border-color: #3c334e;
+}
+
+.btn-purple:not(:disabled):not(.disabled):active, .btn-purple:not(:disabled):not(.disabled).active,
+.show > .btn-purple.dropdown-toggle {
+  color: #ffffff;
+  background-color: #241e2e;
+  border-color: #d3d9df;
+}
+
+.btn-purple:not(:disabled):not(.disabled):active:focus, .btn-purple:not(:disabled):not(.disabled).active:focus,
+.show > .btn-purple.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
+
+.form-control {
+  color: white;
+  background-color: #2f3841;
+  border: 1px solid transparent;
+  margin-bottom: 10px;
+}
+
+.form-control:focus {
+  color: #ffffff;
+  background-color: #2f3841;
+  border-color: #3c334e;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(60,51,78,.25);
+}
