@@ -1,56 +1,137 @@
 <div class="fondo">
   <div class="caja row">
-
     <div class="izquierda col-4">
       <div class="logo">
-        <img src="./assets/logo.png" alt="Logo de Trasladista">
+        <img src="./assets/logo.png" alt="Logo de Trasladista" />
       </div>
-
 
       <div class="contenedor-central">
         <p class="subtitulo">BIENVENIDO.</p>
         <div class="opcionLogin">
-          <span (click)="cambiarOpcion()" [ngClass]="{'active': opcionLogin}">LOG IN</span>
-          <span (click)="cambiarOpcion()" [ngClass]="{'active': !opcionLogin}">SIGN UP</span>
+          <span (click)="cambiarOpcion()" [ngClass]="{ active: opcionLogin }"
+            >LOG IN</span
+          >
+          <span (click)="cambiarOpcion()" [ngClass]="{ active: !opcionLogin }"
+            >SIGN UP</span
+          >
         </div>
       </div>
 
       <p class="terminos">Terminos y Condiciones</p>
-
-
     </div>
 
     <div class="derecha col-8">
       <p class="texto-transparente">Trasladista</p>
-      <img src="./assets/logo.png" alt="Logo de Trasladista">
-      
-      <div *ngIf="opcionLogin"><h2>Login</h2></div>
-      <div *ngIf="!opcionLogin" class="registro">
-        <p>¡Registrate!</p>
-        <form class="container-12">
+      <img src="./assets/logo.png" alt="Logo de Trasladista" />
+
+      <div *ngIf="opcionLogin" class="login">
+        <p>¡Inicia Sesion!</p>
+        <form [formGroup]="miFormularioLogin" class="container-12">
           <div class="row">
             <div class="col-12">
-              <input type="text" placeholder="Nombre Completo" class="form-control">
+              <input
+                formControlName="email"
+                type="email"
+                placeholder="Correo"
+                class="form-control"
+                [class.is-invalid]="
+                miFormularioLogin.get('email').invalid &&
+                miFormularioLogin.get('email').touched
+                "
+              />
+            </div>
+            <div class="col-12">
+              <input
+                formControlName="password"
+                type="password"
+                placeholder="Contraseña"
+                class="form-control"
+                [class.is-invalid]="
+                miFormularioLogin.get('password').invalid &&
+                miFormularioLogin.get('password').touched
+                "
+              />
             </div>
             <div class="col-6">
-              <input type="email" placeholder="Correo" class="form-control">
+              <button type="button" (click)="iniciarSesion()"
+              [disabled]="!miFormularioLogin.valid" class="btn btn-purple">Iniciar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div *ngIf="!opcionLogin" class="registro">
+        <p>¡Registrate!</p>
+        <form [formGroup]="miFormularioRegistro" class="container-12">
+          <div class="row">
+            <div class="col-12">
+              <input
+                formControlName="nombre"
+                type="text"
+                placeholder="Nombre Completo"
+                class="form-control"
+                [class.is-invalid]="
+                  miFormularioRegistro.get('nombre').invalid &&
+                  miFormularioRegistro.get('nombre').touched
+                "
+              />
             </div>
             <div class="col-6">
-              <input type="text" placeholder="Telefono" class="form-control" autocomplete="off">
+              <input
+                formControlName="email"
+                type="email"
+                placeholder="Correo"
+                class="form-control"
+                [class.is-invalid]="
+                  miFormularioRegistro.get('email').invalid &&
+                  miFormularioRegistro.get('email').touched
+                "
+              />
             </div>
             <div class="col-6">
-              <input type="password" placeholder="Contraseña" class="form-control">
+              <input
+                formControlName="telefono"
+                type="text"
+                placeholder="222 222 2222"
+                class="form-control"
+                autocomplete="off"
+                [class.is-invalid]="
+                  miFormularioRegistro.get('telefono').invalid &&
+                  miFormularioRegistro.get('telefono').touched
+                "
+              />
             </div>
             <div class="col-6">
-              <input type="password" placeholder="Repetir" class="form-control">
+              <input
+                formControlName="password"
+                type="password"
+                placeholder="Contraseña"
+                class="form-control"
+                [class.is-invalid]="
+                  miFormularioRegistro.get('password').invalid &&
+                  miFormularioRegistro.get('password').touched
+                "
+              />
             </div>
             <div class="col-6">
-              <button type="button" class="btn btn-purple">Aceptar</button>
+              <input
+                type="password"
+                placeholder="Repetir"
+                class="form-control"
+              />
+            </div>
+            <div class="col-6">
+              <button
+                type="button"
+                class="btn btn-purple"
+                (click)="registrar()"
+                [disabled]="!miFormularioRegistro.valid"
+              >
+                Aceptar
+              </button>
             </div>
           </div>
         </form>
       </div>
     </div>
-
   </div>
 </div>

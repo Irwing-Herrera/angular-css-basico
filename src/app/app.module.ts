@@ -1,18 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgModule } from "@angular/core";
 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './views/login/login.component';
-
+import { AppComponent } from "./app.component";
+import { TrasladistaViews } from "./views/trasladista-views";
+import { TrasladistaComponents } from "./components/trasladista-components";
+import { TrasladistaRouterModule } from "./trasladista.router.module";
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent
-  ],
+  declarations: [AppComponent, ...TrasladistaViews, ...TrasladistaComponents],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TrasladistaRouterModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
