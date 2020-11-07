@@ -1,0 +1,15 @@
+<div class="container-menu">
+  <div class="logo">
+    <img src="./assets/logo.png" alt="Logo de Trasladista" />
+    
+    <div class="actividades">
+      <img *ngFor="let item of itemsMenu; let i = index" [ngStyle]="{'opacity': i === 0 ? '1' : '.4'}" [src]="'./assets/iconos/' + item.imagen + '.svg'" [alt]="item.imagen" />
+    </div>
+
+  </div>
+
+  <div class="cerrar-sesion">
+    <img class="salida" src="./assets/iconos/cerrar-sesion.svg" alt="logo" />
+  </div>
+
+</div>

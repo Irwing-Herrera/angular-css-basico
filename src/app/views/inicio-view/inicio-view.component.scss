@@ -1,0 +1,55 @@
+.container-inicio {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+
+  .center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 0px 30px;
+
+    .navegacion {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      div.input-group {
+        width: 25%;
+      }
+      .icono {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form-control {
+        color: white;
+        background-color: #f8f8f8;
+        font-size: 11px;
+        padding: 21px 10px;
+      }
+
+      .form-control:focus {
+        color: #3c334e;
+        background-color: #f8f8f8;
+        border-color: none;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(60, 51, 78, 0.25);
+      }
+
+      .notificacion {
+      }
+    }
+  }
+}

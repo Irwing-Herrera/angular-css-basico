@@ -61,20 +61,3 @@ body {
 .show > .btn-purple.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
 }
-
-.form-control {
-  color: white;
-  background-color: #2f3841;
-  border: 1px solid transparent;
-  margin-bottom: 10px;
-  font-size: 11px;
-  padding: 21px 10px;
-}
-
-.form-control:focus {
-  color: #ffffff;
-  background-color: #2f3841;
-  border-color: #3c334e;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(60,51,78,.25);
-}

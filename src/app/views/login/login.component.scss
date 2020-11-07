@@ -84,6 +84,23 @@
       justify-content: center;
       padding: 0px 8% 0px 8%;
 
+      .form-control {
+        color: white;
+        background-color: #2f3841;
+        border: 1px solid transparent;
+        margin-bottom: 10px;
+        font-size: 11px;
+        padding: 21px 10px;
+      }
+
+      .form-control:focus {
+        color: #ffffff;
+        background-color: #2f3841;
+        border-color: #3c334e;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(60, 51, 78, 0.25);
+      }
+
       p.texto-transparente {
         transform: rotate(90deg);
         font-weight: bold;
@@ -94,7 +111,7 @@
         left: -27%;
       }
       img {
-        opacity: .02;
+        opacity: 0.02;
         right: -5%;
         bottom: -5%;
         position: absolute;
@@ -113,7 +130,7 @@
 
           div {
             button {
-              margin-top: 10px
+              margin-top: 10px;
             }
           }
         }

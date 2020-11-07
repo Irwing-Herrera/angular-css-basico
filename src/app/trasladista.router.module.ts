@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterLink, RouterModule, Routes } from "@angular/router";
+import { InicioViewComponent } from './views/inicio-view/inicio-view.component';
 
 import { LoginComponent } from "./views/login/login.component";
-import { InicioComponent } from './views/inicio/inicio.component';
 
 const trasladistaRoutes: Routes = [
   {
@@ -11,7 +11,7 @@ const trasladistaRoutes: Routes = [
   },
   {
     path: "inicio",
-    component: InicioComponent,
+    component: InicioViewComponent,
   },
   { path: '**', redirectTo: 'login' }
 ];

@@ -1,4 +1,4 @@
+import { InicioViewComponent } from './inicio-view/inicio-view.component';
 import { LoginComponent } from "./login/login.component";
-import { InicioComponent } from "./inicio/inicio.component";
 
-export const TrasladistaViews = [LoginComponent, InicioComponent];
+export const TrasladistaViews = [LoginComponent, InicioViewComponent];
