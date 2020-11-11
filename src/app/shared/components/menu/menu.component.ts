@@ -13,11 +13,11 @@ export class MenuComponent implements OnInit {
   public itemsMenu: MenuItem[] = [
     {
       imagen: 'home',
-      ruta: '/home'
+      ruta: '/inicio'
     },
     {
-      imagen: 'coche',
-      ruta: '/servicios'
+        imagen: 'coche',
+      ruta: '/servicio'
     },
     {
       imagen: 'cronograma',

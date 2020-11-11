@@ -5,6 +5,7 @@
   width: 100vw;
   height: 100vh;
   padding: 20px;
+  background-color: var(--color_background);
 
   .center {
     width: 100%;
@@ -25,13 +26,6 @@
       div.input-group {
         width: 25%;
       }
-      .icono {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
 
       .form-control {
         color: white;
@@ -49,7 +43,43 @@
       }
 
       .notificacion {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .tema {
+          width: 20px;
+          height: 20px;
+          margin-left: 10px;
+          border-radius: 10px;
+          border: 1px solid #141f27;
+          cursor: pointer;
+
+          &.light {
+            background-color: #f8f8f8;
+          }
+
+          &.dark {
+            background-color: #141f27;
+          }
+        }
       }
+    }
+
+    .contenedor-rutas {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  bi::ng-deep {
+    svg {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

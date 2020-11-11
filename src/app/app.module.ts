@@ -1,23 +1,21 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
-import { TrasladistaViews } from "./views/trasladista-views";
-import { TrasladistaComponents } from "./components/trasladista-components";
 import { TrasladistaRouterModule } from "./trasladista.router.module";
-import { IconsModule } from './icons/icons.module';
+import { LoginModule } from './login/ login.module';
+import { ThemeService } from './theme/theme.service';
 
 @NgModule({
-  declarations: [AppComponent, ...TrasladistaViews, ...TrasladistaComponents],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TrasladistaRouterModule,
-    IconsModule
+    // Importamos el modulo de login
+    LoginModule,
+    // Ruteo de login y dashboard
+    TrasladistaRouterModule
   ],
-  providers: [],
+  providers: [ThemeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

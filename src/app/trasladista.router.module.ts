@@ -1,24 +1,30 @@
 import { NgModule } from "@angular/core";
-import { RouterLink, RouterModule, Routes } from "@angular/router";
-import { InicioViewComponent } from './views/inicio-view/inicio-view.component';
+import { RouterModule, Routes } from "@angular/router";
 
-import { LoginComponent } from "./views/login/login.component";
+// Componentes
+import { LoginComponent } from "./login/login.component";
 
 const trasladistaRoutes: Routes = [
   {
-    path: "",
+    path: "login",
     component: LoginComponent,
   },
   {
-    path: "inicio",
-    component: InicioViewComponent,
+    path: "",
+    // Realizamos la carga de el modulo de views
+    loadChildren: "./views/views.module#ViewsModule",
   },
-  { path: '**', redirectTo: 'login' }
+  { path: "**", redirectTo: "login" },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(trasladistaRoutes)],
-  providers: [RouterLink],
-  exports: [RouterModule],
+  imports: [
+    // Decir que rutas son los disponibles
+    RouterModule.forRoot(trasladistaRoutes)
+  ],
+  exports: [
+    //Poder usar ruteo en views
+    RouterModule,
+  ],
 })
 export class TrasladistaRouterModule {}

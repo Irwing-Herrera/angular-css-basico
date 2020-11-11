@@ -6,7 +6,7 @@
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">
-            <bi name="search" class="icono"></bi>
+            <bi name="search"></bi>
           </span>
         </div>
         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
@@ -14,7 +14,13 @@
 
       <div class="notificacion">
         <bi name="bell"></bi>
+        <div class="tema light" (click)="temaLight()"></div>
+        <div class="tema dark" (click)="temaDark()"></div>
       </div>
+    </div>
+    
+    <div class="contenedor-rutas">
+      <router-outlet></router-outlet>
     </div>
   </div>
 
