@@ -1,7 +1,6 @@
 <div class="container-inicio">
   <app-menu></app-menu>
   <div class="center">
-
     <div class="navegacion">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -9,19 +8,29 @@
             <bi name="search"></bi>
           </span>
         </div>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="ID de rastreo"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
       </div>
 
       <div class="notificacion">
-        <bi name="bell"></bi>
-        <div class="tema light" (click)="temaLight()"></div>
-        <div class="tema dark" (click)="temaDark()"></div>
+        <p>{{titlePage}}</p>
+        <bi name="bell" (click)="mostrarModal()"></bi>
+        <bi *ngIf="activeTheme === 'dark'" name="droplet-half" class="light" (click)="temaLight()"></bi>
+        <bi *ngIf="activeTheme === 'light'" name="droplet-half" class="dark" (click)="temaDark()"></bi>
       </div>
     </div>
-    
+
     <div class="contenedor-rutas">
       <router-outlet></router-outlet>
     </div>
   </div>
 
+  <div *ngIf="visibilityModal" class="my-modal">
+    <app-notificacion *ngFor="let item of [0,1]"></app-notificacion>
+  </div>
 </div>

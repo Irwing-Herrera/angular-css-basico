@@ -1,4 +1,4 @@
 export class MenuItem {
- imagen: string;
+ icono: string;
  ruta: string;
 }

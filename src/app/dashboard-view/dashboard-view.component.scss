@@ -6,6 +6,9 @@
   height: 100vh;
   padding: 20px;
   background-color: var(--color_background);
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: relative;
 
   .center {
     width: 100%;
@@ -24,7 +27,24 @@
       align-items: center;
 
       div.input-group {
-        width: 25%;
+        min-width: 30%;
+        max-width: 30%;
+        div {
+          span {
+            background-color: #f8f8f8;
+          }
+        }
+      }
+
+      p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        margin-right: 50px;
+        font-weight: bold;
+        font-size: 23px;
+        color: var(--color_primary);
       }
 
       .form-control {
@@ -47,23 +67,6 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-
-        .tema {
-          width: 20px;
-          height: 20px;
-          margin-left: 10px;
-          border-radius: 10px;
-          border: 1px solid #141f27;
-          cursor: pointer;
-
-          &.light {
-            background-color: #f8f8f8;
-          }
-
-          &.dark {
-            background-color: #141f27;
-          }
-        }
       }
     }
 
@@ -73,6 +76,20 @@
     }
   }
 
+  .my-modal {
+    width: auto;
+    height: auto;
+    top: 8%;
+    right: 5%;
+    background-color: var(--color_background);
+    border: 1px solid var(--color_primary);
+    border-radius: 10px;
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+  }
+
   bi::ng-deep {
     svg {
       width: 20px;
@@ -80,6 +97,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      color: var(--color_primary);
+      cursor: pointer;
+
+      &.bi-bell {
+        color: var(--color_primary);
+      }
     }
   }
 }

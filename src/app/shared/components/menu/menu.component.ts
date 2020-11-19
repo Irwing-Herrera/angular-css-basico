@@ -1,35 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'src/app/models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
-  constructor() { }
+  constructor(
+    private _router: Router
+  ) { }
 
   public itemsMenu: MenuItem[] = [
     {
-      imagen: 'home',
-      ruta: '/inicio'
+      icono: 'house',
+      ruta: '/home'
     },
     {
-        imagen: 'coche',
+      icono: 'collection',
       ruta: '/servicio'
     },
     {
-      imagen: 'cronograma',
+      icono: 'list-task',
       ruta: '/seguimiento'
     },
     {
-      imagen: 'configuracion',
+      icono: 'person',
       ruta: '/configuracion'
     }
   ];
 
-  ngOnInit() {
+  public salir() {
+    this._router.navigate(['/login']);
   }
-
 }

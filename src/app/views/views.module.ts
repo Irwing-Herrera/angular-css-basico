@@ -8,6 +8,7 @@ import { DashboardRoutingModule } from "../dashboard-view/ dashboard-router.modu
 
 import { IconsModule } from "../icons/icons.module";
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -21,6 +22,9 @@ import { SharedModule } from '../shared/shared.module';
     IconsModule,
     //Poder usar ruteo en views
     RouterModule,
+    // Poder ocupar formularios
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     //Obtener la declaracion de todas las vistas

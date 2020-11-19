@@ -3,17 +3,16 @@
     <img src="./assets/logo.png" alt="Logo de Trasladista" />
 
     <div class="actividades">
-      <img
-        *ngFor="let item of itemsMenu;"
-        [src]="'./assets/iconos/' + item.imagen + '.svg'"
-        [alt]="item.imagen"
+      <bi
+        *ngFor="let item of itemsMenu"
+        [name]="item.icono"
         [routerLink]="item.ruta"
-        routerLinkActive="active"
-      />
+        routerLinkActive="icon-active"
+      ></bi>
     </div>
   </div>
 
   <div class="cerrar-sesion">
-    <img class="salida" src="./assets/iconos/cerrar-sesion.svg" alt="logo" />
+    <bi name="power" (click)="salir()"></bi>
   </div>
 </div>

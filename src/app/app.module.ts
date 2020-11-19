@@ -3,8 +3,9 @@ import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
 import { TrasladistaRouterModule } from "./trasladista.router.module";
-import { LoginModule } from './login/ login.module';
-import { ThemeService } from './theme/theme.service';
+import { LoginModule } from "./login/ login.module";
+import { ThemeService } from "./theme/theme.service";
+import { LocationService } from "./services/location.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +16,7 @@ import { ThemeService } from './theme/theme.service';
     // Ruteo de login y dashboard
     TrasladistaRouterModule
   ],
-  providers: [ThemeService],
+  providers: [ThemeService, LocationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

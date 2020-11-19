@@ -1,3 +1,57 @@
-<p>
-  servicios-view works!
-</p>
+<div class="servicio-view-conatiner">
+  <form [formGroup]="formulario" (ngSubmit)="validarFormulario()">
+
+  <div class="izquierdo">
+
+    <p>Para poder solicitar un servicio de traslado llena todos los datos y da clic en el botón de Solicitar.</p>
+    <hr>
+
+    <div class="form-group">
+      <label for="origen">Origen de vehiculo</label>
+      <input id="origen" type="text" formControlName="origen" placeholder="Origen" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="destino">Destino de vehiculo</label>
+      <input id="destino" type="text" formControlName="destino" placeholder="Destino" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="modelo">Modelo</label>
+      <input id="modelo" type="text" formControlName="modelo" placeholder="Modelo de vehiculo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="ano">Año</label>
+      <input id="ano" type="number" formControlName="ano" placeholder="Año de vehiculo" class="form-control" />
+    </div>
+
+    <hr>
+
+    <button type="submit" [ngClass]="formulario.valid ? null : 'disabled'" class="btn btn-purple">Solicitar</button>
+  </div>
+
+  <div class="derecho">
+    <div class="form-group">
+      <label for="izquierdo">Lateral Izquierdo</label>
+      <textarea id="izquierdo" type="text" formControlName="izquierda" placeholder="Observaciones . . ." rows="4" cols="50" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="derecho">Lateral Derecho</label>
+      <textarea id="derecho" type="text" formControlName="derecha" placeholder="Observaciones . . ." rows="4" cols="50" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="frontal">Parte Frontal</label>
+      <textarea id="frontal" type="text" formControlName="frontal" placeholder="Observaciones . . ." rows="4" cols="50" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="derecho">Lateral Derecho</label>
+      <textarea id="derecho" type="text" formControlName="trasera" placeholder="Observaciones . . ." rows="4" cols="50" class="form-control"></textarea>
+    </div>
+  </div>
+
+  </form>
+</div>

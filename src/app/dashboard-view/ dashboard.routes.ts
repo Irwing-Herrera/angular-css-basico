@@ -1,10 +1,26 @@
 import { Routes } from "@angular/router";
 import { HomeViewComponent } from "../views/hom-view/home-view.component";
 import { ServiciosViewComponent } from "../views/servicios-view/servicios-view.component";
+import { SeguimientoViewComponent } from '../views/seguimiento-view/seguimiento-view.component';
+import { ConfiguracionViewComponent } from '../views/configuracion-view/configuracion-view.component';
 
 export const dashboardRoutes: Routes = [
-  { path: "home", component: HomeViewComponent },
-  { path: "servicio", component: ServiciosViewComponent },
+  { path: "home", data: { pagina: "Inicio" }, component: HomeViewComponent },
+  {
+    path: "servicio",
+    data: { pagina: "Solicitud de Servicio" },
+    component: ServiciosViewComponent,
+  },
+  {
+    path: "seguimiento",
+    data: { pagina: "Seguimiento de Servicio" },
+    component: SeguimientoViewComponent,
+  },
+  {
+    path: "configuracion",
+    data: { pagina: "Configuracion de Cuenta" },
+    component: ConfiguracionViewComponent,
+  },
   {
     path: "**",
     redirectTo: "home",

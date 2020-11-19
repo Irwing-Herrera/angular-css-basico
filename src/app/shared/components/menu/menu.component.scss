@@ -2,7 +2,7 @@
   width: 100px;
   height: 100%;
   background-color: var(--color_primary);
-  border-radius: 15px;
+  border-radius: 37px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -13,12 +13,29 @@
   .cerrar-sesion {
     width: 100%;
     text-align: center;
+
     img {
       width: 50%;
-      &.salida {
-        width: 30%;
-        transform: rotate(180deg);
-        cursor: pointer;
+    }
+
+    bi.icon-active::ng-deep  {
+      opacity: 1;
+    }
+
+    bi::ng-deep  {
+      width: 35px;
+      height: 35px;
+      margin-top: 50px;
+      opacity: .4;
+      cursor: pointer;
+
+      svg {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--color_background);
       }
     }
 
@@ -28,20 +45,6 @@
       flex-direction: column;
       align-items: center;
       margin-top: 25px;
-      img {
-        width: 30%;
-        margin: 25px 0px;
-        opacity: .4;
-        cursor: pointer;
-
-        &.active {
-          opacity: 1;
-        }
-
-        &:hover {
-          opacity: .8 !important;
-        }
-      }
     }
   }
 }

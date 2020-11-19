@@ -1,0 +1,54 @@
+.notification-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 10px;
+  color: var(--color_primary);
+
+  width: 100%;
+  height: auto;
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px;
+    margin-right: 50px;
+    flex-grow: 1;
+
+    p {
+      margin: 0;
+
+      &.fecha {
+        font-weight: bold;
+        font-size: 13px;
+      }
+
+      &.titulo {
+        font-weight: 300;
+        font-size: 16px;
+      }
+
+      &.descripcion {
+        font-weight: 300;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .image {
+    bi::ng-deep {
+      svg {
+        width: 25px;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--color_primary);
+        cursor: pointer;
+      }
+    }
+  }
+}
