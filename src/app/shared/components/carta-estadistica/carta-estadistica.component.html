@@ -1,0 +1,9 @@
+<div class="carta-estadistica-container">
+  <div class="icono" [ngStyle]="{'background-color': 'var(' + datosCarta.color + ')' }">
+    <bi [name]="datosCarta.icono"></bi>
+  </div>
+  <div class="datos">
+    <p class="titulo">{{ datosCarta.titulo }}</p>
+    <p class="cifra">{{ datosCarta.cifra }}</p>
+  </div>
+</div>

@@ -67,6 +67,10 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+
+        app-perfil {
+          margin-left: 15px;
+        }
       }
     }
 
@@ -80,7 +84,7 @@
     width: auto;
     height: auto;
     top: 8%;
-    right: 5%;
+    right: 16%;
     background-color: var(--color_background);
     border: 1px solid var(--color_primary);
     border-radius: 10px;
@@ -100,7 +104,7 @@
       color: var(--color_primary);
       cursor: pointer;
 
-      &.bi-bell {
+      &.bi-search {
         color: var(--color_primary);
       }
     }

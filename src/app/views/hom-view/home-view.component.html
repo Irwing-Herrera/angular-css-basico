@@ -1,1 +1,26 @@
-<p>home view</p>
+<div class="inicio-contenedor">
+  <div class="derecho">
+    <div class="cartas-contenedor">
+      <p>SERVICIOS A LA MEDIDA</p>
+      <div>
+        <app-carta
+          *ngFor="let carta of cartas"
+          [datosDeCarta]="carta"
+        ></app-carta>
+      </div>
+    </div>
+  </div>
+
+  <div class="vacio"></div>
+
+  <div class="izquierdo">
+    <div class="estadisticas-trasladista-container">
+      <app-carta-estadistica
+        *ngFor="let carta of cartasEstadiscticas"
+        [datosCarta]="carta"
+      ></app-carta-estadistica>
+    </div>
+
+    <app-carta-navegacion [datosCarta]="cartaConNavegacion[0]"></app-carta-navegacion>
+  </div>
+</div>

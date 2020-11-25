@@ -31,8 +31,8 @@
 .timeline-event-icon {
   transition: transform 0.2s ease-in;
   transform: rotate(45deg);
-  background-color: black;
-  outline: 10px solid white;
+  background-color: var(--color_primary);
+  outline: 10px solid var(--color_background);
   display: block;
   margin: 0.5em 0.5em 0.5em -0.5em;
   position: absolute;

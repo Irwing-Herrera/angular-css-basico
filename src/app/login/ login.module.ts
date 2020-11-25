@@ -4,7 +4,6 @@ import { RouterModule } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { LoginComponent } from "./login.component";
-
 @NgModule({
   declarations: [LoginComponent],
   imports: [
@@ -14,7 +13,7 @@ import { LoginComponent } from "./login.component";
     FormsModule,
     ReactiveFormsModule,
     //Poder usar ruteo en views
-    RouterModule,
+    RouterModule
   ],
 })
 export class LoginModule {}

@@ -1,0 +1,62 @@
+.inicio-contenedor {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .derecho {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .cartas-contenedor {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      p {
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      div {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  .vacio {
+    width: 3%;
+    height: 100%;
+  }
+
+  .izquierdo {
+    width: 28%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--color_third);
+    border-radius: 25px;
+    padding: 20px 25px 20px 25px;
+
+    .estadisticas-trasladista-container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}

@@ -20,17 +20,18 @@
       <div class="notificacion">
         <p>{{titlePage}}</p>
         <bi name="bell" (click)="mostrarModal()"></bi>
-        <bi *ngIf="activeTheme === 'dark'" name="droplet-half" class="light" (click)="temaLight()"></bi>
-        <bi *ngIf="activeTheme === 'light'" name="droplet-half" class="dark" (click)="temaDark()"></bi>
+        <bi *ngIf="activeTheme === 'dark'" name="droplet-half" (click)="temaLight()"></bi>
+        <bi *ngIf="activeTheme === 'light'" name="droplet-half" (click)="temaDark()"></bi>
+        <app-perfil></app-perfil>
       </div>
     </div>
 
-    <div class="contenedor-rutas">
+    <div class="contenedor-rutas" [@fadeAnimation]="titlePage">
       <router-outlet></router-outlet>
     </div>
   </div>
 
-  <div *ngIf="visibilityModal" class="my-modal">
+  <div *ngIf="visibilityModal" class="my-modal" [@fadeAnimation]="visibilityModal">
     <app-notificacion *ngFor="let item of [0,1]"></app-notificacion>
   </div>
 </div>

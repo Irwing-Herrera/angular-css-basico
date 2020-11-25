@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { FadeAnimation } from '../shared/animations/fade.animation';
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"],
+  animations: [FadeAnimation]
 })
 export class LoginComponent implements OnInit {
 

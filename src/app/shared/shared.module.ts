@@ -15,7 +15,7 @@ import { IconsModule } from "../icons/icons.module";
   ],
   declarations: [
     //Obtener la declaracion de todoss los compoenentees
-    ...TrasladistaComponents
+    ...TrasladistaComponents,
   ],
   exports: [
     //Exportar la declaracion de todoss los compoenentees

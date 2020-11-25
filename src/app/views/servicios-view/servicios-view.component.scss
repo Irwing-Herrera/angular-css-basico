@@ -16,6 +16,8 @@
       padding: 10px;
 
       p {
+        font-weight: bold;
+        font-size: 16px;
         color: var(--color_primary);
       }
 
@@ -25,6 +27,8 @@
 
       .form-group {
         label {
+          font-weight: 300;
+          font-size: 15px;
           color: var(--color_primary);
         }
 

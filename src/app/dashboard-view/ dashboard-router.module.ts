@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { dashboardRoutes } from "./ dashboard.routes";
 import { DashboardViewComponent } from "./dashboard-view.component";
 import { IconsModule } from "../icons/icons.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
