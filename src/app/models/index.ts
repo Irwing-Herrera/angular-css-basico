@@ -4,3 +4,4 @@ export * from './carta.model';
 export * from './carta-estadistica.model';
 export * from './carta-navegacion.model';
 export * from './usuario.model';
+export * from './servicio-solicitud';
