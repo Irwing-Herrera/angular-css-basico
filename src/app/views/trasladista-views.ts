@@ -3,11 +3,15 @@ import { ServiciosViewComponent } from "./servicios-view/servicios-view.componen
 import { DashboardViewComponent } from "../dashboard-view/dashboard-view.component";
 import { SeguimientoViewComponent } from './seguimiento-view/seguimiento-view.component';
 import { ConfiguracionViewComponent } from './configuracion-view/configuracion-view.component';
+import { AdminComponent } from './admin/admin.component';
+import { OperadoresComponent } from './operadores/operadores.component';
 
 export const TrasladistaViews = [
   DashboardViewComponent,
   HomeViewComponent,
   ServiciosViewComponent,
   SeguimientoViewComponent,
-  ConfiguracionViewComponent
+  ConfiguracionViewComponent,
+  OperadoresComponent,
+  AdminComponent
 ];

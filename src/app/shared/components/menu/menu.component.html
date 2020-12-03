@@ -2,7 +2,7 @@
   <div class="logo">
     <img src="./assets/logo.png" alt="Logo de Trasladista" />
 
-    <div class="actividades">
+    <div class="actividades" *ngIf="itemsMenu">
       <bi
         *ngFor="let item of itemsMenu"
         [name]="item.icono"

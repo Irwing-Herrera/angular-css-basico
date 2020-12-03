@@ -3,6 +3,7 @@ import { ThemeService } from "../theme/theme.service";
 import { ActivationEnd, Router } from "@angular/router";
 import { filter, map } from "rxjs/operators";
 import { FadeAnimation } from '../shared/animations/fade.animation';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: "app-dashboard-view",
@@ -16,10 +17,16 @@ export class DashboardViewComponent implements OnInit {
    * @param _themeService tema utilizado
    * @param _route nombre de pagina
    */
-  constructor(private _themeService: ThemeService, private _router: Router) {
+  constructor(
+    private _themeService: ThemeService,
+    private _router: Router,
+    private _loginService: LoginService
+  ) {
     this.getDataRoute();
+    this._loginService.user.subscribe((respuesta) => respuesta ? this.isLoad = true : this.isLoad = false);
   }
 
+  public isLoad: boolean = false;
   /**
    * Nombre de pagina activa
    */

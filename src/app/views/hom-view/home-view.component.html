@@ -21,6 +21,6 @@
       ></app-carta-estadistica>
     </div>
 
-    <app-carta-navegacion [datosCarta]="cartaConNavegacion[0]"></app-carta-navegacion>
+    <app-carta-navegacion *ngIf="rolUsuario === 'cliente'" [datosCarta]="cartaConNavegacion[0]" (changeStatusMenu)="navegarServicios()"></app-carta-navegacion>
   </div>
 </div>

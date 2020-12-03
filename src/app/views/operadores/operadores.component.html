@@ -1,0 +1,138 @@
+<div class="operadores-view-container">
+  <div class="tabla" *ngIf="mostrarTabla">
+    <div class="options-menu">
+      <button class="btn btn-success" (click)="mostrarFormulario()">
+        Agregar nuevo Operador
+      </button>
+    </div>
+
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Foto</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Municipio</th>
+          <th scope="col">Colonia</th>
+          <th scope="col">Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let operador of operadores">
+          <td>
+            <img [src]="operador.foto" [alt]="'img-' + operador.nombre">
+          </td>
+          <td>{{operador.nombre}}</td>
+          <td>{{operador.correo}}</td>
+          <td>{{operador.telefono}}</td>
+          <td>{{operador.estado}}</td>
+          <td>{{operador.municipio}}</td>
+          <td>{{operador.colonia}}</td>
+          <td>
+            <button class="btn btn-danger" (click)="eliminarOperador(operador.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="crear-usuario" *ngIf="mostrarFormularioCrear">
+    <div class="options-menu">
+      <button class="btn btn-primary" (click)="mostrarTablaOperadores()">
+        Mostrar Operadores
+      </button>
+    </div>
+
+    <p class="text-left">Llena el siguiente formulario para poder crear un nuevo Operador.</p>
+    <br />
+
+    <form [formGroup]="formularioCrear" class="container-12" (ngSubmit)="crearOperador()">
+      <div class="form-group">
+        <label for="modelo">Nombre Completo</label>
+        <input
+          id="modelo"
+          type="text"
+          formControlName="nombre"
+          placeholder="Ingresa tu Nombre"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo Electronico</label>
+        <div class="row ml-2">
+          <input
+          id="correo"
+          type="text"
+          formControlName="correo"
+          placeholder="Ingresa tu Correo"
+          class="form-control col-6"
+          />
+          <input
+          id="correo"
+          disabled
+          type="text"
+          placeholder="@trasladista.com"
+          class="form-control col-3"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Telefono</label>
+        <input
+          id="telefono"
+          type="text"
+          formControlName="telefono"
+          placeholder="Ingresa tu Telefono"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="estado">Estado</label>
+        <input
+          id="estado"
+          type="text"
+          formControlName="estado"
+          placeholder="Ingresa tu Estado"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="municipio">Municipio</label>
+        <input
+          id="municipio"
+          type="text"
+          formControlName="municipio"
+          placeholder="Ingresa tu Municipio"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="colonia">Colonia</label>
+        <input
+          id="colonia"
+          type="text"
+          formControlName="colonia"
+          placeholder="Ingresa tu Colonia"
+          class="form-control"
+        />
+      </div>
+
+      <hr />
+
+      <button
+        type="submit"
+        [ngClass]="formularioCrear.valid ? null : 'disabled'"
+        class="btn btn-purple"
+      >
+        Crear Operador
+      </button>
+    </form>
+  </div>
+</div>

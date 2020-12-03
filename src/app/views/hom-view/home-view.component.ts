@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 import { Carta, CartaEstadistica } from "src/app/models";
 import { CartaNavegacion } from '../../models/carta-navegacion.model';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: "app-home-view",
@@ -8,7 +10,14 @@ import { CartaNavegacion } from '../../models/carta-navegacion.model';
   styleUrls: ["./home-view.component.scss"],
 })
 export class HomeViewComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private _router: Router,
+    private _loginService: LoginService
+  ) {
+    this._loginService.rol.subscribe((value: string) => this.rolUsuario = value);
+  }
+
+  public rolUsuario: string;
 
   public cartas: Carta[] = [
     {
@@ -60,6 +69,10 @@ export class HomeViewComponent implements OnInit {
       textoBoton: 'Solicitar'
     }
   ];
+
+  public navegarServicios() {
+    this._router.navigate(['/' + this.cartaConNavegacion[0].ruta]);
+  }
 
   ngOnInit() {}
 }

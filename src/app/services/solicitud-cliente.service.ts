@@ -29,47 +29,49 @@ export class SolicitudClienteService {
   }
 
   /**
-   * Crear un servicio en la raiz de los Servicios.
+   * Obtener id de usuario
+   */
+  private _uid: string = localStorage.getItem("uid");
+
+  /**
+   * Crear un servicio.
    * @param { ServicioSolicitud } servicio
    */
-  // TODO: Revisar pertenencia de servicio
   public crearServicio(servicio: ServicioSolicitud): any {
     return this._http.post<any>(
-      `${this.API_URL_SOLICTUD_SERVICIO}/servicio.json`,
+      `${this.API_URL_SOLICTUD_SERVICIO}/servicios/${this._uid}.json`,
       JSON.stringify(servicio)
     );
   }
 
   /**
-   * Actualizar un servicio en la raiz de los Servicios.
+   * Actualizar el estado de un servicio.
    * @param { ServicioSolicitud } servicio
    */
-  // TODO: Revisar pertenencia de servicio
   public actualizarServicio(servicio: ServicioSolicitud): any {
     return this._http.put<any>(
-      `${this.API_URL_SOLICTUD_SERVICIO}/servicio/${servicio.id}.json`,
+      `${this.API_URL_SOLICTUD_SERVICIO}/servicios/${this._uid}/${servicio.id}.json`,
       JSON.stringify(servicio)
     );
   }
 
   /**
-   * Obtener un servicio en especifico de la raiz de los Servicios.
+   * Obtener un servicio.
    * @param { ServicioSolicitud } servicio
    */
   public obtenerServicio(id: string): any {
     return this._http.get<any>(
-      `${this.API_URL_SOLICTUD_SERVICIO}/servicio/${id}.json`
+      `${this.API_URL_SOLICTUD_SERVICIO}/servicios/${this._uid}/${id}.json`
     );
   }
 
   /**
-   * Obtener todos los servicio de la raiz de los Servicios.
+   * Obtener todos los servicios.
    * @param { ServicioSolicitud } servicio
    */
-  // TODO: Revisar pertenencia de servicio
   public obtenerServicios(): any {
     return this._http.get<any>(
-      `${this.API_URL_SOLICTUD_SERVICIO}/servicio.json`
+      `${this.API_URL_SOLICTUD_SERVICIO}/servicios/${this._uid}.json`
     );
   }
 }

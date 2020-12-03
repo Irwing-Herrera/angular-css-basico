@@ -1,9 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, Inject } from "@angular/core";
 import { Observable } from "rxjs";
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 import { ENV_CONFIG } from "src/app/enviroment-config";
+import { RespuestaObtenerUsuario } from '../models/usuario.model';
 import {
+  Operador,
   RespuestaCrearUsuario,
   RespuestaIniciarUsuario,
   SolicitudCrearUsuario,
@@ -18,6 +21,9 @@ export class LoginService {
     private _http: HttpClient,
     @Inject(ENV_CONFIG) private environment: any
   ) {}
+
+  public user = new BehaviorSubject<RespuestaObtenerUsuario>(null);
+  public rol = new BehaviorSubject<string>('');
 
   /**
    * Obtiene la URL del API para la seccion de Autentificacion / Registro
@@ -63,6 +69,19 @@ export class LoginService {
       email: usuario.correo,
       password: usuario.password,
       returnSecureToken: true,
+    };
+
+    return this._http.post<RespuestaCrearUsuario>(
+      `${this.API_URL_AUTENTIFICACION}signUp?key=${this.API_KEY}`,
+      JSON.stringify(informacion)
+    );
+  }
+
+  public crearUsuarioOperador(operador: Operador): Observable<RespuestaCrearUsuario> {
+    const informacion: SolicitudCrearUsuario = {
+      email: operador.correo,
+      password: '123456',
+      returnSecureToken: true
     };
 
     return this._http.post<RespuestaCrearUsuario>(

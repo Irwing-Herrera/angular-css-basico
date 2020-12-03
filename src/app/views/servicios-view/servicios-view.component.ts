@@ -3,6 +3,7 @@ import { LocationService } from "src/app/services/location.service";
 import { FormGroup, Validators, FormControl } from "@angular/forms";
 import { SolicitudClienteService } from "../../services/solicitud-cliente.service";
 import { ServicioSolicitud } from "../../models/servicio-solicitud";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-servicios-view",
@@ -18,7 +19,8 @@ export class ServiciosViewComponent implements OnInit {
    */
   constructor(
     private _locationService: LocationService,
-    private _solicitudClienteService: SolicitudClienteService
+    private _solicitudClienteService: SolicitudClienteService,
+    private _router: Router
   ) {}
 
   public formulario: FormGroup;
@@ -73,30 +75,29 @@ export class ServiciosViewComponent implements OnInit {
 
   public validarFormulario() {
     if (this.formulario.valid) {
-
       const solicitud: ServicioSolicitud = {
-        fecha: new Date(),
-        hora: "10:58 PM",
-        lugar_origen: 'AAAAA',
-        calle: 'A',
-        colonia: 'Aqui',
-        numero_exterior: 10,
-        numero_interior: 11,
-        pais: "Mexico",
-        estado: "Puebla",
-        lugar_destino: 'BBBBB',
-        called: 'B',
-        coloniad: 'ALguna',
-        numero_exteriord: 12,
-        numero_interiord: 13,
-        paisd: 'Mexico',
-        estadod: "Oaxaca"
+        fecha: Date.now(),
+        activo: "en espera",
+        lugar_origen: this.formulario.controls['origen'].value,
+        lugar_destino: this.formulario.controls['destino'].value,
+        auto: {
+          modelo: this.formulario.controls['modelo'].value,
+          ano: this.formulario.controls['ano'].value,
+          comentarios: {
+            lateral_izquierdo: this.formulario.controls['izquierda'].value,
+            lateral_derecho: this.formulario.controls['derecha'].value,
+            frontal: this.formulario.controls['frontal'].value,
+            trasero: this.formulario.controls['trasera'].value,
+          },
+        },
       };
 
       this._solicitudClienteService
         .crearServicio(solicitud)
         .subscribe((algo: any) => {
-          console.log(algo);
+          console.log("Servicio creado id: ", algo);
+          // TODO: Norificar creacion de servicio
+          this._router.navigate(['/seguimiento']);
         });
     }
   }

@@ -1,5 +1,82 @@
 <div class="seguimiento-view-container">
-  <ul class="timeline">
+
+  <div class="contenedor-botones">
+    <button *ngIf="mostrarTabla" class="btn btn-purple" (click)="mostrarTable()">Regresar</button>
+  </div>
+
+  <div *ngIf="cartas[2].textoBoton != null && mostrarCartas">
+    <app-carta-navegacion
+      [datosCarta]="cartas[0]"
+      (changeStatusMenu)="verServicios('en espera')"
+    ></app-carta-navegacion>
+    <app-carta-navegacion
+      [datosCarta]="cartas[1]"
+      (changeStatusMenu)="verServicios('activo')"
+    ></app-carta-navegacion>
+    <app-carta-navegacion
+      [datosCarta]="cartas[2]"
+      (changeStatusMenu)="verServicios('finalizado')"
+    ></app-carta-navegacion>
+  </div>
+
+  <div *ngIf="mostrarTabla">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Duracion</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Lugar Origen</th>
+          <th scope="col">Lugar Destino</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Año</th>
+          <th scope="col">Estatus</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="cartaVisible == 'en espera'">
+        <tr *ngFor="let item of serviciosEnEspera">
+          <td>Por definir</td>
+          <td>{{item.fecha}}</td>
+          <td>{{item.lugar_origen}}</td>
+          <td>{{item.lugar_destino}}</td>
+          <td>{{item.auto.modelo}}</td>
+          <td>{{item.auto.ano}}</td>
+          <td>
+            <button class="btn btn-danger">Falta validar</button>
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody *ngIf="cartaVisible == 'activo'">
+        <tr *ngFor="let item of serviciosActivos">
+          <td>{{item.duracion}}</td>
+          <td>{{item.fecha}}</td>
+          <td>{{item.lugar_origen}}</td>
+          <td>{{item.lugar_destino}}</td>
+          <td>{{item.auto.modelo}}</td>
+          <td>{{item.auto.ano}}</td>
+          <td>
+            <button class="btn btn-primary">Mostrar seguimiento</button>
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody *ngIf="cartaVisible == 'finalizado'">
+        <tr *ngFor="let item of serviciosFinalizados">
+          <td>{{item.duracion}}</td>
+          <td>{{item.fecha}}</td>
+          <td>{{item.lugar_origen}}</td>
+          <td>{{item.lugar_destino}}</td>
+          <td>{{item.auto.modelo}}</td>
+          <td>{{item.auto.ano}}</td>
+          <td>
+            <button class="btn btn-success">Mostrar finalizacion</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ul *ngIf="mostrarTimeLine" class="timeline">
     <app-time-line *ngFor="let item of TimeEvents.reverse()" [dataTimeEvent]="item"></app-time-line>
   </ul>
 </div>

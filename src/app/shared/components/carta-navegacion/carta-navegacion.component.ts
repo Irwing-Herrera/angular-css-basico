@@ -1,25 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CartaNavegacion } from '../../../models/carta-navegacion.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carta-navegacion',
   templateUrl: './carta-navegacion.component.html',
   styleUrls: ['./carta-navegacion.component.scss']
 })
-export class CartaNavegacionComponent implements OnInit {
-
-  constructor(
-    private _router: Router
-  ) { }
+export class CartaNavegacionComponent {
 
   @Input() datosCarta: CartaNavegacion;
+	@Output() changeStatusMenu = new EventEmitter<boolean>();
 
   public navegar() {
-    this._router.navigate(['/' + this.datosCarta.ruta]);
+    this.changeStatusMenu.emit();
   }
-
-  ngOnInit() {
-  }
-
 }

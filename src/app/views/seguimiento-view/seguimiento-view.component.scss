@@ -5,6 +5,45 @@
   overflow-y: scroll;
   overflow-x: hidden;
 
+  .contenedor-botones {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    app-carta-navegacion::ng-deep {
+      height: 50%;
+      margin: 50px;
+
+      .carta-navegacion-container {
+        transition: 0.3s;
+        img {
+          margin-top: 0px;
+        }
+      }
+
+      .carta-navegacion-container:hover {
+        top: -10px;
+        box-shadow: 10px 10px 0px 0px var(--color_primary_opacity);
+        img {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+
   .timeline {
     position: relative;
     max-width: 100%;

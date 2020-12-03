@@ -9,12 +9,15 @@ import { Injectable } from "@angular/core";
 import { Observable, of, throwError } from "rxjs";
 import { HttpHeaders } from "@angular/common/http";
 import { catchError, switchMap } from "rxjs/operators";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: "root",
 })
 export class InterceptorLoginService implements HttpInterceptor {
-  constructor() {}
+  constructor(
+    private _router: Router
+  ) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -39,6 +42,12 @@ export class InterceptorLoginService implements HttpInterceptor {
    */
   private handleError(error: HttpErrorResponse) {
     console.log(error);
+
+    if (error.error.message = "INVALID_ID_TOKEN") {
+      localStorage.removeItem('idToken');
+      localStorage.removeItem('uid');
+      this._router.navigate(['/login']);
+    }
     return throwError(error);
   }
 }

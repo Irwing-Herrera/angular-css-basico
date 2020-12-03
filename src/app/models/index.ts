@@ -5,3 +5,4 @@ export * from './carta-estadistica.model';
 export * from './carta-navegacion.model';
 export * from './usuario.model';
 export * from './servicio-solicitud';
+export * from './operador.model';

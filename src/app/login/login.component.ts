@@ -3,7 +3,11 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { FadeAnimation } from "../shared/animations/fade.animation";
 import { LoginService } from "../services/login.service";
-import { RespuestaCrearUsuario, Usuario } from "../models";
+import {
+  RespuestaCrearUsuario,
+  RespuestaIniciarUsuario,
+  Usuario,
+} from "../models";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -31,10 +35,9 @@ export class LoginComponent implements OnInit {
 
     this._loginService
       .inciarSesion(usuario)
-      .subscribe((respuesta: any) => {
-        console.log("Inicio de Sesion: ", respuesta);
-        this._router.navigate(['/']);
-        // TODO: avisar al usuario que inicio sesion correctamente
+      .subscribe((respuesta: RespuestaIniciarUsuario) => {
+        localStorage.setItem("idToken", JSON.stringify(respuesta));
+        this._router.navigate(["/"]);
       });
   }
 
@@ -50,9 +53,7 @@ export class LoginComponent implements OnInit {
     this._loginService
       .crearUsuario(nuevoUsuario)
       .subscribe((respuesta: RespuestaCrearUsuario) => {
-        console.log("Registro existoso: ", respuesta);
         this.opcionLogin = !this.opcionLogin;
-        // TODO: avisar al usuario que se registro correctamente
       });
   }
 

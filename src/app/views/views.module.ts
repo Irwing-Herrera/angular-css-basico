@@ -9,6 +9,7 @@ import { DashboardRoutingModule } from "../dashboard-view/ dashboard-router.modu
 import { IconsModule } from "../icons/icons.module";
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OperadoresComponent } from './operadores/operadores.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   declarations: [
     //Obtener la declaracion de todas las vistas
-    ...TrasladistaViews
+    ...TrasladistaViews,
+    OperadoresComponent
   ],
 })
 export class ViewsModule {}
